@@ -1,0 +1,39 @@
+{
+    "fileTypes": ["ir"],
+    "name": "IR",
+    "patterns": [
+        {
+            "#include": "#keywords"
+        },
+        {
+            "#include": "#parameter"
+        },
+        {
+            "#include": "#variable"
+        },
+        {
+            "#include": "#operator_number"
+        }
+    ],
+    "repository": {
+        "parameter": {
+			"match": "(?<!^)%para.*?(\\.)",
+			"name": "comment.line.number-sign"
+		}, 
+        "operator_number": {
+            "match": "op\\d+",
+            "name": "keyword.letter"
+        },
+        "variable": {
+			"match": "%\\d+",
+			"name": "comment.line.number-sign"
+		},
+        "keywords": {
+			"patterns": [{
+				"name": "keyword.control.ir",
+				"match": "\\b(if|while|for|return)\\b"
+			}]
+		}
+    },
+    "scopeName": "source.ir"
+}
